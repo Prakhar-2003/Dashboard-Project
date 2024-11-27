@@ -3,6 +3,7 @@ import { BsCurrencyDollar } from 'react-icons/bs';
 import { GoPrimitiveDot } from 'react-icons/go';
 import { IoIosMore } from 'react-icons/io';
 import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
+import PropTypes from 'prop-types'; 
 
 import { Stacked, Pie, Button, LineChart, SparkLine } from '../components';
 import { earningData, medicalproBranding, recentTransactions, weeklyStats, dropdownData, SparklineAreaData, ecomPieChartData } from '../data/dummy';
@@ -14,6 +15,9 @@ const DropDown = ({ currentMode }) => (
     <DropDownListComponent id="time" fields={{ text: 'Time', value: 'Id' }} style={{ border: 'none', color: (currentMode === 'Dark') && 'white' }} value="1" dataSource={dropdownData} popupHeight="220px" popupWidth="120px" />
   </div>
 );
+DropDown.propTypes = {
+  currentMode: PropTypes.string.isRequired,  // Add PropTypes validation for currentMode
+};
 
 const Ecommerce = () => {
   const { currentColor, currentMode } = useStateContext();

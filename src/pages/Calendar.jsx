@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types'; // Import PropTypes
 import { ScheduleComponent, ViewsDirective, ViewDirective, Day, Week, WorkWeek, Month, Agenda, Inject, Resize, DragAndDrop } from '@syncfusion/ej2-react-schedule';
 import { DatePickerComponent } from '@syncfusion/ej2-react-calendars';
 
@@ -7,6 +8,11 @@ import { Header } from '../components';
 
 // eslint-disable-next-line react/destructuring-assignment
 const PropertyPane = (props) => <div className="mt-5">{props.children}</div>;
+
+// Define PropTypes for PropertyPane component
+PropertyPane.propTypes = {
+  children: PropTypes.node.isRequired, // Validate children prop
+};
 
 const Scheduler = () => {
   const [scheduleObj, setScheduleObj] = useState();
@@ -60,3 +66,4 @@ const Scheduler = () => {
 };
 
 export default Scheduler;
+

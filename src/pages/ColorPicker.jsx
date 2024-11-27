@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'; // Import PropTypes
 import { ColorPickerComponent } from '@syncfusion/ej2-react-inputs';
 
 import { Header } from '../components';
@@ -8,6 +9,12 @@ const change = (args) => {
 };
 
 const CustomColorPicker = ({ id, mode }) => <ColorPickerComponent id={id} mode={mode} modeSwitcher={false} inline showButtons={false} change={change} />;
+
+// Define PropTypes for CustomColorPicker component
+CustomColorPicker.propTypes = {
+  id: PropTypes.string.isRequired, // Validate 'id' prop
+  mode: PropTypes.string.isRequired, // Validate 'mode' prop
+};
 
 const ColorPicker = () => (
   <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">

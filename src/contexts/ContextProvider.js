@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
+import PropTypes from 'prop-types';  // Import PropTypes
 
 const StateContext = createContext();
 
@@ -35,6 +36,11 @@ export const ContextProvider = ({ children }) => {
       {children}
     </StateContext.Provider>
   );
+};
+
+// Add PropTypes for children
+ContextProvider.propTypes = {
+  children: PropTypes.node.isRequired, // Ensure children is passed and is a valid React node
 };
 
 export const useStateContext = () => useContext(StateContext);

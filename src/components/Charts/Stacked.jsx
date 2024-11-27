@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ChartComponent, SeriesCollectionDirective, SeriesDirective, Inject, Legend, Category, StackingColumnSeries, Tooltip } from '@syncfusion/ej2-react-charts';
 
 import { stackedCustomSeries, stackedPrimaryXAxis, stackedPrimaryYAxis } from '../../data/dummy';
@@ -26,6 +27,16 @@ const Stacked = ({ width, height }) => {
       </SeriesCollectionDirective>
     </ChartComponent>
   );
+};
+
+Stacked.propTypes = {
+  width: PropTypes.string.isRequired,
+  height: PropTypes.string.isRequired,
+};
+
+Stacked.defaultProps = {
+  width: '100%',
+  height: '400px',
 };
 
 export default Stacked;

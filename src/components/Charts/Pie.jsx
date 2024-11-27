@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { AccumulationChartComponent, AccumulationSeriesCollectionDirective, AccumulationSeriesDirective, AccumulationLegend, PieSeries, AccumulationDataLabel, Inject, AccumulationTooltip } from '@syncfusion/ej2-react-charts';
 
 import { useStateContext } from '../../contexts/ContextProvider';
@@ -41,6 +42,24 @@ const Doughnut = ({ id, data, legendVisiblity, height }) => {
       </AccumulationSeriesCollectionDirective>
     </AccumulationChartComponent>
   );
+};
+
+Doughnut.propTypes = {
+  id: PropTypes.string.isRequired,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      x: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+      y: PropTypes.number.isRequired,
+      text: PropTypes.string, // Optional if used for labels
+    })
+  ).isRequired,
+  legendVisiblity: PropTypes.bool.isRequired,
+  height: PropTypes.string.isRequired,
+};
+
+Doughnut.defaultProps = {
+  legendVisiblity: true,
+  height: '400px',
 };
 
 export default Doughnut;
